@@ -1,0 +1,43 @@
+HDD :an electro-mechanical data storage device that uses magnetic storage to store and retrieve digital data using one or more rigid rapidly rotating platters coated with magnetic material.
+SSD : solid-state storage device that uses integrated circuit assemblies to store data persistently, typically using flash memory, and functioning as secondary storage in the hierarchy of computer storage.
+
+		SSD 		HDD
+Accesstime: 	0.1ms		5.5to8ms
+RandomIO:	6000 io/s	400 io/s
+Reliability:	2-5 %		0.5%
+Energy Saving:	2-5 Watts	6-15 Watts
+CPU Power:	1%		7%
+I/O Request:	20ms		400-500ms
+Backup Rates:	6hrs		20-24hrs
+
+Talking about HDDs - 
+
+there are two main techniques to increase hard drive capacity: 
+add more platters inside the hard drive or
+cram more pieces of data (bits) on a given surface area (disk).
+
+Increase the platter density can’t be pushed much further anymore: the 3.5” disks are already filled with platters and the air inside the core has been replaced by helium, while future designs may be vacuum-sealed to get rid of the last amount of gas resistance.
+Increasing the data density is the only way left to significantly improve the storage capacity.
+Increasing the amount of data you can store on a disk requires cramming magnetic regions closer together, but on conventional media the bits and data it represents becomes thermally unstable and flip.Thus, you need a “harder” material to keep your data stable but harder material causes problem in writing data.
+So now, we need an approach so that this hardness can be reduced to the point where the recording head can write information on the media tracks.
+Here is where HAMR and MAMR come in.
+MAMR: Microwave-Assisted Magnetic Recording uses 20-40 GHz frequencies to bombard the disk platter with a circular microwave field, lowering its coercivity and enabling the bit value to be written.
+HAMR: Heat-Assisted Magnetic Recording uses a tiny 200 mW laser beam to heat up the disk platter to 750 °F (400 °C) and permit the writing operation.
+This has led to creation of 18TB+ drives in the market.
+WD claims MAMR drives will top out at 4 Tb/in^2, whereas Seagate's HAMR is widely projected to top out at 10 Tb/in^2. Currently its around 1 to 1.5 TB/in^2.
+
+Talikng about SSDs - 
+
+Incase of SSDs, there hasnt been much development in the storage media i.e. the Flash memory. Currently there are multi level cells present in Flash, which allows 1 transisitor to represent more than 1 bits. So the major development that occured here was the improvement connection from host having high speed, bandwidth and low latency.
+ 
+SATA (Serial Advanced Technology Attachment) - SATA interfaces deliver data through a high-speed serial cable over two pairs of conductors.
+By transmitting data serially, SATA was able to wrap multiple bits into packets and move the data faster than ever before.
+SATA does come with a few drawbacks. Most notably, SATA can’t read and write simultaneously because it only features half-duplex capabilities. It also has less functionality for error recovery and reporting. So for light workloads involving cold (rarely accessed) data, SATA is a great bargain.
+SATA is your best choice when cost is more important in your storage interface decision than performance.
+
+SAS (Serial Attached SCSI) - With SAS, controllers are linked directly to the drive; it also enables the connection of up to 128 different devices via thinner and longer cables. Plus, SAS has full-duplex capabilities supporting simultaneous read and write tasks at high speeds.
+It’s reliable, gives you a great speed-to-cost ratio, and features built-in error checking for end-to-end data integrity. And SAS can also be configured to operate in the same environment as SATA. So you can use SAS drives for your hot (frequently accessed) data, while leveraging the cost advantage of SATA drives for colder data.
+
+NVMe (Non-Volatile Memory Express) - NVMe’s were invented to address a burgeoning problem for server manufacturers. In the early 2000’s, the first PCIe bus offered significant increases in bandwidth because it attached directly to the CPU. Unfortunately, this bandwidth was bottlenecked by storage interfaces that were designed for hard disk drives. So NVMe was created to future-proof the interface and take full advantage of advancements in server technology.
+
+NVMe sits directly between the device driver and the PCIe device, enabling low latency, scalability, and security. This allows them to deliver up to 4 times better I/O operations per second than the most advanced SAS interfaces. Additionally, by enabling drives to use the same “pool” of lanes connected to the CPU, NVMe significantly increases scalability. From a cost standpoint, NVMe can greatly reduce power consumption and improve security to meet standards like the Opal and Enterprise SSC (Security Subsystem Class) specifications.
